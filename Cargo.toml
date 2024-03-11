@@ -1,0 +1,15 @@
+[package]
+name = "pcf857x-simple"
+authors = ["Emeric Martineau <11473190+emeric-martineau@users.noreply.github.com>"]
+description = "A very simple manager of PCF8574 and PCF8575"
+homepage = "https://github.com/emeric-martineau/pcf857x-simple-rs"
+keywords = ["embedded", "PCF8574", "PCF8575", "Esp32"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/emeric-martineau/pcf857x-simple-rs"
+version = "0.1.0"
+edition = "2021"
+
+
+[dependencies]
+embedded-hal = "0.2"
