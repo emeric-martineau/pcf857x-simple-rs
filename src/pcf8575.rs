@@ -30,12 +30,16 @@ where
 
     /// Turn off all pins
     pub fn clear(&mut self) -> Result<(), <I as i2c::Write>::Error> {
-        self.i2c.write(self.address, &[0, 0])
+        self.i2c.write(self.address, &[0, 0])?;
+        self.pins_state = 0;
+        Ok(())
     }
 
     /// Turn on all pins
     pub fn all_on(&mut self) -> Result<(), <I as i2c::Write>::Error> {
-        self.i2c.write(self.address, &[0xff, 0xff])
+        self.i2c.write(self.address, &[0xff, 0xff])?;
+        self.pins_state = 0xffff;
+        Ok(())
     }
 
     /// Send two bytes
