@@ -7,7 +7,7 @@ keywords = ["embedded", "PCF8574", "PCF8575", "Esp32"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/emeric-martineau/pcf857x-simple-rs"
-version = "0.1.1"
+version = "0.2.0"
 edition = "2021"
 
 

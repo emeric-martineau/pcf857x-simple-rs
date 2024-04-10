@@ -134,7 +134,7 @@ pub mod pcf8574;
 pub mod pcf8575;
 
 /// Pin of Pcf857x
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, Debug)]
 pub enum Pin {
     /// Pin 0
     P0 = 1,
@@ -168,6 +168,13 @@ pub enum Pin {
     P16 = 16384,
     /// Pin 17 (only PCF8575)
     P17 = 32768,
+}
+
+/// Pin state of Pcf857x
+#[derive(Copy, Clone, Debug)]
+pub enum PinState {
+    Up(Pin),
+    Down(Pin),
 }
 
 /// Defaut base address of device

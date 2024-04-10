@@ -1,5 +1,5 @@
 //! Mod to use PCF8575
-use crate::Pin;
+use crate::{Pin, PinState};
 use embedded_hal::blocking::i2c::{self, Read};
 
 /// Struct to manage Pcf8575
@@ -76,6 +76,42 @@ where
         }
 
         self.write(new_value)
+    }
+
+    /// Invert pins
+    pub fn toogle_pins(&mut self, value: &[Pin]) -> Result<(), <I as i2c::Write>::Error> {
+        let mut new_value = self.pins_state;
+
+        for pin in value {
+            if self.pins_state & (*pin as u16) > 0 {
+                // Pin Up
+                new_value &= !(*pin as u16)
+            } else {
+                // Pin Down
+                new_value |= *pin as u16
+            }
+        }
+
+        self.write(new_value)
+    }
+
+    /// Set up don't change other
+    pub fn set_pins(&mut self, value: &[PinState]) -> Result<(), <I as i2c::Write>::Error> {
+        let mut new_value = self.pins_state;
+
+        for state in value {
+            match state {
+                PinState::Up(pin) => new_value |= *pin as u16,
+                PinState::Down(pin) => new_value &= !(*pin as u16),
+            }
+        }
+
+        self.write(new_value)
+    }
+
+    /// Reset internal pin cache
+    pub fn reset_pins_cache(&mut self) {
+        self.pins_state = 0;
     }
 
     /// Get state of pins from this struct
