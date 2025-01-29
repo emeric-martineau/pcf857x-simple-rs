@@ -5,24 +5,24 @@ use embedded_hal::i2c::I2c;
 // Yes, I have duplicate the code, cause I find that macro is really hard to read.
 
 /// Struct to manage Pcf8574
-pub struct Pcf8574<'a, I>
+pub struct Pcf8574<I>
 where
     I: I2c,
 {
     /// I2C driver
-    i2c: &'a mut I,
+    i2c: I,
     /// Adress of hardware
     address: u8,
     /// State pint
     pins_state: u8,
 }
 
-impl<'a, I> Pcf8574<'a, I>
+impl<I> Pcf8574<I>
 where
     I: I2c,
 {
     /// Create a new struct to manage Pcf8575
-    pub fn new(i2c: &'a mut I, address: u8) -> Self {
+    pub fn new(i2c: I, address: u8) -> Self {
         Self {
             i2c,
             address,

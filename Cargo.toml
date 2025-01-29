@@ -7,7 +7,7 @@ keywords = ["PCF8574", "PCF8575", "embedded-hal-v1"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/emeric-martineau/pcf857x-simple-rs"
-version = "1.0.0"
+version = "2.0.0"
 edition = "2021"
 
 [dependencies]

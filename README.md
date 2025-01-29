@@ -2,16 +2,20 @@
 
 This crate is very simple manager of hardware pcf8574 and pcf8575. 
 
+Compatible with embedded-hal v1 and embedded-hal-bus v1.
+
 Crate was tested on ESP32 WROOM-32.
 
 See rust documentation.
 
 ## Compatibility
 
-| pcf857x-simple | embedded-hal |
-|----------------|--------------|
-| 0.1.x          | v0.2.x       |
-| 0.2.x          | v0.2.x       |
+| pcf857x-simple | embedded-hal | embedded-hal-bus |
+|----------------|--------------|------------------|
+| 0.1.x          | v0.2.x       | _No_             |
+| 0.2.x          | v0.2.x       | _No_             |
+| 1.x.x          | v1           | _No_             |
+| 2.x.x          | v1           | _Yes_            |
 
 ## Example of use
 
